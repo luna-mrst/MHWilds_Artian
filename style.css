@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+    overflow: scroll;
+}
+
+.nodisp {
+    display: none;
+}
+
+.operate {
+    height: 25px;
+    width: 100%;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 1;
+
+    button {
+        margin-left: 10px;
+    }
+
+    input {
+        width: 25px;
+    }
+}
+
+.body {
+    overflow: auto;
+    margin-top: 55px;
+    height: calc(100vh - 75px);
+}
+
+.row {
+    display: flex;
+    margin-left: 15px;
+    border: 1px solid black;
+    width: fit-content;
+
+    &:not(:first-child) {
+        border-top: none;
+    }
+}
+
+.weapon {
+    width: 170px;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid black;
+    padding: 0 1em;
+}
+
+.label {
+    width: 120px;
+    padding: 0 1em;
+    border-right: 1px solid black;
+
+    div {
+        margin-top: 10px;
+
+        &:last-child {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.skillList {
+    display: flex;
+}
+
+.skill {
+    width: 210px;
+    display: flex;
+    padding: 0 1em;
+    border-right: 1px solid black;
+
+    &:has(input:checked) {
+        background-color: orangered;
+    }
+
+    input[type=text] {
+        width: 150px;
+    }
+
+    .unnecessary {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-right: 0.5em;
+    }
+
+    .skill-wrapper {
+        position: relative;
+        margin-top: 10px;
+
+        .wordList {
+            position: absolute;
+            top: 21px;
+            left: 0;
+            border: 1px solid black;
+            z-index: 1;
+            background-color: white;
+            width: 150px;
+
+            p:hover {
+                background-color: azure;
+                cursor: default;
+            }
+        }
+    }
+}
+
+.addButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+
+    button {
+        width: 20px;
+    }
+}
+
+.footer {
+    margin: 5px 20px;
+
+    button {
+        padding: 2px 5px;
+    }
+}
