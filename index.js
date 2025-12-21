@@ -398,7 +398,7 @@ document.addEventListener('DOMContentLoaded',_ => {
     document.getElementById('import')?.addEventListener('click',_ => {
         const input = window.prompt('現在入力されている内容は破棄されます。');
 
-        if (input === '') return;
+        if (input == null) return;
         try {
             JSON.parse(input);
             localStorage.setItem('data',input);
