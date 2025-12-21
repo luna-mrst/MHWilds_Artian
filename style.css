@@ -79,6 +79,7 @@ body {
     display: flex;
     padding: 0 1em;
     border-right: 1px solid black;
+    position: relative;
 
     &:has(input:checked) {
         background-color: orangered;
@@ -113,6 +114,13 @@ body {
                 cursor: default;
             }
         }
+    }
+
+    .skill-index {
+        position: absolute;
+        top: 0;
+        left: 5px;
+        font-size: 13px;
     }
 }
 

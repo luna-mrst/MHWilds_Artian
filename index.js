@@ -207,6 +207,11 @@ const createSkillColumn = (listNode,checkFlg,seriesSkillValue,groupSkillValue) =
     div.appendChild(skillWrapper2);
     skill.appendChild(div);
 
+    const idx = document.createElement('div');
+    idx.classList.add('skill-index');
+    idx.innerText = listNode.children.length;
+    skill.appendChild(idx);
+
     listNode.insertBefore(skill,listNode.querySelector('.addButton'));
 }
 
@@ -374,8 +379,7 @@ const tableMove = count => {
     const inputData = JSON.parse(localStorage.getItem('data')??'[]');
 
     inputData.forEach(data => {
-        console.log(data);
-        [...Array(count)].forEach(_ => data.skillData.shift());
+        [...Array(Number(count))].forEach(_ => data.skillData.shift());
     });
 
     localStorage.setItem('data',JSON.stringify(inputData));
