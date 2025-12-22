@@ -268,7 +268,10 @@ const addColumn = e => {
     const parentRow = e.currentTarget.parentElement.parentElement.parentElement;
 
     createSkillColumn(parentRow,false,'','');
+    const body = document.getElementById('body');
+    const scrollTop = body.scrollTop;
     e.currentTarget.parentElement.parentElement.scrollIntoView();
+    body.scrollTop = scrollTop;
 
     saveData();
 }
