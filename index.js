@@ -268,6 +268,7 @@ const addColumn = e => {
     const parentRow = e.currentTarget.parentElement.parentElement.parentElement;
 
     createSkillColumn(parentRow,false,'','');
+    e.currentTarget.parentElement.parentElement.scrollIntoView();
 
     saveData();
 }
