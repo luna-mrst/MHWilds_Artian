@@ -12,13 +12,27 @@
         <p>
             テーブル進行数：<input type="number" name="move" id="move" value="1">
             <button id="moveBtn">テーブルを進める</button>
-            <button id="import">データインポート</button>
-            <button id="export">データエクスポート</button>
+            <button id="saveData">データインポート/エクスポート</button>
         </p>
     </div>
     <div id="body" class="body">
         <div class="footer">
             <button id="addRow">行追加</button>
+        </div>
+    </div>
+    <div class="modal-back">
+        <div class="modal-content">
+            <div class="modal-text">
+                保存用のテキストをコピー･ペーストしてください。<br>
+                ※読込時、現在入力されているデータは上書きされます。
+            </div>
+            <div class="data-wrapper">
+                <textarea id="jsonData"></textarea>
+            </div>
+            <div class="modal-control">
+                <button id="modal-import">インポート</button>
+                <button id="modal-close">閉じる</button>
+            </div>
         </div>
     </div>
 </body>

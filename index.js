@@ -386,6 +386,33 @@ const tableMove = count => {
     loadData();
 }
 
+const openModal = () => {
+    const modalBack = document.querySelector('.modal-back');
+    modalBack.classList.add('open');
+
+    const modalData = document.getElementById('jsonData');
+    modalData.value = localStorage.getItem('data');
+}
+
+const closeModal = () => {
+    document.querySelector('.modal-back').classList.remove('open');
+}
+
+const modalImport = () => {
+    const input = document.getElementById('jsonData').value;
+
+    if (input == null) return;
+    try {
+        JSON.parse(input);
+        localStorage.setItem('data',input);
+        loadData();
+        closeModal();
+    } catch {
+        alert('入力エラー');
+    }
+}
+
+
 document.addEventListener('DOMContentLoaded',_ => {
     document.getElementById('moveBtn')?.addEventListener('click',_ => {
         const count = document.getElementById('move').value;
@@ -395,21 +422,9 @@ document.addEventListener('DOMContentLoaded',_ => {
     document.getElementById('addRow')?.addEventListener('click',_ => {
         addRow('',[{seriesSkill:'',groupSkill:''}]);
     });
-    document.getElementById('import')?.addEventListener('click',_ => {
-        const input = window.prompt('現在入力されている内容は破棄されます。');
-
-        if (input == null) return;
-        try {
-            JSON.parse(input);
-            localStorage.setItem('data',input);
-            loadData();
-        } catch {
-            alert('入力エラー');
-        }
-    });
-    document.getElementById('export')?.addEventListener('click',_ => {
-        window.prompt('コピーしてください。',localStorage.getItem('data'));
-    });
+    document.getElementById('saveData')?.addEventListener('click',openModal);
+    document.getElementById('modal-import')?.addEventListener('click',modalImport);
+    document.getElementById('modal-close')?.addEventListener('click',closeModal);
 
     loadData();
 });
