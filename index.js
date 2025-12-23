@@ -377,6 +377,9 @@ const loadData = () => {
     } else {
         inputData.forEach(data => addRow(data.weaponName,data.skillData));
     }
+
+    const moveCount = Math.min(...inputData.map(data => data.skillData.findIndex(skill => !skill.checked)).filter(cnt => cnt !== -1));
+    document.getElementById('move').value = moveCount;
 }
 
 const tableMove = count => {
